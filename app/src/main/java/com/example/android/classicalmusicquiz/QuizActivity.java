@@ -426,4 +426,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             mExoPlayer.seekTo(0);
         }
     }
+
+    // TODO (1): Create a static inner class that extends Broadcast Receiver and implement the onReceive() method.
+    //TODO (2): Call MediaButtonReceiver.handleIntent and pass in the incoming intent as well as the MediaSession object to forward the intent to the MediaSession.Callbacks.
 }

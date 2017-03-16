@@ -31,6 +31,7 @@
         </activity>
         <activity android:name=".QuizActivity"
             android:launchMode="singleTop"/>
+        <!-- TODO (3): Create a receiver tag for the receiver you create in QuizActivity. Add an Intent Filter for the MEDIA_BUTTON intent. -->
     </application>
 
 </manifest>
