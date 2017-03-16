@@ -44,6 +44,7 @@ import com.google.android.exoplayer2.util.Util;
 
 import java.util.ArrayList;
 
+// TODO (1): Have this Activity implement ExoPlayer.EventListener and add the required methods.
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final int CORRECT_ANSWER_DELAY_MILLIS = 1000;
@@ -102,6 +103,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         mButtons = initializeButtons(mQuestionSampleIDs);
         
         Sample answerSample = Sample.getSampleByID(this, mAnswerSampleID);
+
         if (answerSample == null) {
             Toast.makeText(this, getString(R.string.sample_not_found_error),
                     Toast.LENGTH_SHORT).show();
@@ -146,6 +148,9 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             LoadControl loadControl = new DefaultLoadControl();
             mExoPlayer = ExoPlayerFactory.newSimpleInstance(this, trackSelector, loadControl);
             mPlayerView.setPlayer(mExoPlayer);
+
+            // TODO (2): Set the ExoPlayer.EventListener to this activity
+            
             // Prepare the MediaSource.
             String userAgent = Util.getUserAgent(this, "ClassicalMusicQuiz");
             MediaSource mediaSource = new ExtractorMediaSource(mediaUri, new DefaultDataSourceFactory(
@@ -254,4 +259,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         super.onDestroy();
         releasePlayer();
     }
+
+    // TODO (3): Add conditional logging statements to the onPlayerStateChanged() method that log when ExoPlayer is playing or paused.
 }
