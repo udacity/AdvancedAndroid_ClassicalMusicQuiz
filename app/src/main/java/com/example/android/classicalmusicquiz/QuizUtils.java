@@ -134,5 +134,4 @@ class QuizUtils {
         endGame.putExtra(GAME_FINISHED, true);
         context.startActivity(endGame);
     }
-
 }
