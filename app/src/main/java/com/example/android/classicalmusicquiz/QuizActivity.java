@@ -27,6 +27,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.google.android.exoplayer2.ui.PlayerView;
+
 import java.util.ArrayList;
 
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
@@ -47,8 +49,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-        // TODO (2): Replace the ImageView with the PlayerView, and remove the method calls on the composerView.
-        ImageView composerView = (ImageView) findViewById(R.id.composerView);
+        // COMPLETED (2): Replace the ImageView with the PlayerView, and remove the method calls on the composerView.
+        PlayerView playerView = (PlayerView) findViewById(R.id.playerView);
 
         boolean isNewGame = !getIntent().hasExtra(REMAINING_SONGS_KEY);
 
