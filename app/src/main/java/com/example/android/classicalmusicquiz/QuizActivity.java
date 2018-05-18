@@ -153,6 +153,11 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    private void releasePlayer() {
+        mExoPlayer.stop();
+        mExoPlayer.release();
+        mExoPlayer = null;
+    }
 
     /**
      * The OnClick method for all of the answer buttons. The method uses the index of the button
@@ -233,5 +238,11 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    // TODO (11): Override onDestroy() to stop and release the player when the Activity is destroyed.
+    // COMPLETED (11): Override onDestroy() to stop and release the player when the Activity is destroyed.
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        releasePlayer();
+    }
 }
