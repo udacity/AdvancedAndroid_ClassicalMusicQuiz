@@ -42,6 +42,7 @@ import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.LoadControl;
+import com.google.android.exoplayer2.PlaybackParameters;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
@@ -370,7 +371,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     // ExoPlayer Event Listeners
 
     @Override
-    public void onTimelineChanged(Timeline timeline, Object manifest) {
+    public void onTimelineChanged(Timeline timeline, Object manifest, int reason) {
+
     }
 
     @Override
@@ -402,11 +404,32 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
+    public void onRepeatModeChanged(int repeatMode) {
+
+    }
+
+    @Override
+    public void onShuffleModeEnabledChanged(boolean shuffleModeEnabled) {
+
+    }
+
+    @Override
     public void onPlayerError(ExoPlaybackException error) {
     }
 
     @Override
-    public void onPositionDiscontinuity() {
+    public void onPositionDiscontinuity(int reason) {
+
+    }
+
+    @Override
+    public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
+
+    }
+
+    @Override
+    public void onSeekProcessed() {
+
     }
 
     /**
