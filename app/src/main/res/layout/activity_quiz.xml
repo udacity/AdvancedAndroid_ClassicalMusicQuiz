@@ -67,9 +67,9 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonB" />
 
-    <!--TODO (1): Replace the Composer ImageView with a PlayerView that occupies the top half of your screen.-->
-    <ImageView
-        android:id="@+id/composerView"
+    <!--COMPLETED (1): Replace the Composer ImageView with a PlayerView that occupies the top half of your screen.-->
+    <PlayerView
+        android:id="@+id/playerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -80,7 +80,6 @@
         app:layout_constraintBottom_toTopOf="@+id/horizontalHalf"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/question_mark" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>
