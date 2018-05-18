@@ -112,7 +112,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
 
     // In initializePayer
-    // TODO (6): Instantiate a SimpleExoPlayer object using DefaultTrackSelector and DefaultLoadControl.
+    // COMPLETED (6): Instantiate a SimpleExoPlayer object using DefaultTrackSelector and DefaultLoadControl.
     // TODO (7): Prepare the MediaSource using DefaultDataSourceFactory and DefaultExtractorsFactory, as well as the Sample URI you passed in.
     // TODO (8): Prepare the ExoPlayer with the MediaSource, start playing the sample and set the SimpleExoPlayer to the PlayerView.
 
