@@ -221,8 +221,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         for (int i = 0; i < mQuestionSampleIDs.size(); i++) {
             int buttonSampleID = mQuestionSampleIDs.get(i);
 
-            // TODO (10): Change the default artwork in the PlayerView to show the picture of the composer, when the user has answered the question.
+            // COMPLETED (10): Change the default artwork in the PlayerView to show the picture of the composer, when the user has answered the question.
             mButtons[i].setEnabled(false);
+            mPlayerView.setDefaultArtwork(Sample.getComposerArtBySampleID(this, mAnswerSampleID));
+
             if (buttonSampleID == mAnswerSampleID) {
                 mButtons[i].getBackground().setColorFilter(ContextCompat.getColor
                                 (this, android.R.color.holo_green_light),
