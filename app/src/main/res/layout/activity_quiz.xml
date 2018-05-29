@@ -67,7 +67,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonB" />
 
-    <!--TODO (1): Replace the Composer ImageView with a SimpleExoPlayerView that occupies the top half of your screen.-->
+    <!--TODO (1): Replace the Composer ImageView with a PlayerView that occupies the top half of your screen.-->
     <ImageView
         android:id="@+id/composerView"
         android:layout_width="0dp"
