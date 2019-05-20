@@ -74,7 +74,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private static MediaSessionCompat mMediaSession;
     private PlaybackStateCompat.Builder mStateBuilder;
     private NotificationManager mNotificationManager;
-
+    private String CHANNEL_ID = "quiz_playback_channel"";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,6 +190,29 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         return buttons;
     }
 
+    /**
+    *For android 8 above notification
+    */
+    @RequiresApi(Build.VERSION_CODES.O)
+    private void createChannel() {
+        NotificationManager
+                mNotificationManager =
+                (NotificationManager) this
+                        .getSystemService(Context.NOTIFICATION_SERVICE);
+        // The id of the channel.
+        String id = CHANNEL_ID;
+        // The user-visible name of the channel.
+        CharSequence name = "Media playback";
+        // The user-visible description of the channel.
+        String description = "Media playback controls";
+        int importance = NotificationManager.IMPORTANCE_LOW;
+        NotificationChannel mChannel = new NotificationChannel(id, name, importance);
+        // Configure the notification channel.
+        mChannel.setDescription(description);
+        mChannel.setShowBadge(false);
+        mChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
+        mNotificationManager.createNotificationChannel(mChannel);
+    }
 
     /**
      * Shows Media Style notification, with actions that depend on the current MediaSession
@@ -197,8 +220,11 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
      * @param state The PlaybackState of the MediaSession.
      */
     private void showNotification(PlaybackStateCompat state) {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            createChannel();
+        }
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID);
+        
         int icon;
         String play_pause;
         if(state.getState() == PlaybackStateCompat.STATE_PLAYING){
@@ -230,7 +256,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 .addAction(restartAction)
                 .addAction(playPauseAction)
-                .setStyle(new NotificationCompat.MediaStyle()
+                .setStyle(new android.support.v4.media.app.NotificationCompat.MediaStyle()
                         .setMediaSession(mMediaSession.getSessionToken())
                         .setShowActionsInCompactView(0,1));
 
