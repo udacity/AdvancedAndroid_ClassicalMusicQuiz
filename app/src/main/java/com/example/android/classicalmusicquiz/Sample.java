@@ -16,6 +16,8 @@ package com.example.android.classicalmusicquiz;
 * limitations under the License.
 */
 
+import static com.google.android.exoplayer2.upstream.DataSourceUtil.closeQuietly;
+
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
@@ -191,7 +193,7 @@ class Sample {
         try {
             reader = new JsonReader(new InputStreamReader(inputStream, "UTF-8"));
         } finally {
-            Util.closeQuietly((Closeable) dataSource);
+            closeQuietly(dataSource);
         }
 
         return reader;
